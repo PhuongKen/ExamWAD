@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ExamWAD.Models.Exam>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExamDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassRoom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Faculty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @if (item.Subject == 1)
+            {
+                <p>Core Java</p>
+            }
+            @if (item.Subject == 2)
+            {
+                <p>Advance Jav</p>
+            }
+            @if (item.Subject == 3)
+            {
+                <p>Programming C#</p>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExamDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration)
+        </td>
+        <td>
+            @if (item.ClassRoom == 1)
+            {
+                <p>B10</p>
+            }
+            @if (item.ClassRoom == 2)
+            {
+                <p>B16</p>
+            }
+            @if (item.ClassRoom == 3)
+            {
+                <p>B14</p>
+            }
+        </td>
+        <td>
+            @if (item.Faculty == 1)
+            {
+                <p>Jayalakshmi</p>
+            }
+            @if (item.Faculty == 2)
+            {
+                <p>Jonh Carter</p>
+            }
+            @if (item.Faculty == 3)
+            {
+                <p>HienPA</p>
+            }
+        </td>
+        <td>
+            @if (item.Status == 1)
+            {
+                <p>done</p>
+            }
+            @if (item.Status == 2)
+            {
+                <p>up comming</p>
+            }
+            @if (item.Status == 3)
+            {
+                <p>on going</p>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
